@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Control environment - NZ-R-ML</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Jake" />
+    <meta name="description" content="Some of the setup of a virtual server we use" />
+    <meta name="keywords" content="server, setup" />
+    <link rel="stylesheet" href="/media/css/main.css" type="text/css">
+    <link rel="stylesheet" href="/media/css/prettify.css" type="text/css">
+  </head>
+  <body class="container">
+    <div>
+      <header class="masthead">
+        <h1 class="masthead-title"><a href="/">NZ-R-ML</a></h1>
+        <p>Malithi and Jake scaling datascience</p>
+        <ul>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/tags/">Tags</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="https://github.com/kelvinh/org-page">GitHub</a></li>
+          <li><a href="/rss.xml">RSS</a></li>
+        </ul>
+        <form method="get" id="searchform" action="//www.google.com/search">
+          <input type="text" class="field" name="q" id="s" placeholder="Search">
+          <input type="hidden" name="as_sitesearch" value="nz-r-ml.github.io">
+        </form>
+      </header>
+    </div>
+
+<div>
+<div class="post">
+<h1>Control environment</h1>
+<div id="outline-container-orgd96b68b" class="outline-2">
+<h2 id="orgd96b68b">Some of my initial choices for this project</h2>
+<div class="outline-text-2" id="text-orgd96b68b">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Language</td>
+<td class="org-left"><a href="https://ess.r-project.org/">R</a></td>
+</tr>
+
+<tr>
+<td class="org-left">Editor</td>
+<td class="org-left"><a href="https://github.com/emacs-mirror/emacs">Emacs 27</a></td>
+</tr>
+
+<tr>
+<td class="org-left">Programming framework</td>
+<td class="org-left"><a href="https://orgmode.org/">org-mode 9</a></td>
+</tr>
+
+<tr>
+<td class="org-left">R manager</td>
+<td class="org-left"><a href="https://ess.r-project.org/">ess</a></td>
+</tr>
+
+<tr>
+<td class="org-left">Operating system</td>
+<td class="org-left"><a href="https://ess.r-project.org/">Gentoo</a></td>
+</tr>
+</tbody>
+</table>
+<p>
+A little idiomatic, I know! Luckily Malithi is also using <a href="https://www.rstudio.com/">R Studio</a>.
+</p>
+</div>
+<div id="outline-container-org488c99d" class="outline-3">
+<h3 id="org488c99d">Why <b>R</b> ?</h3>
+<div class="outline-text-3" id="text-org488c99d">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Kiwi as</td>
+<td class="org-left">live code</td>
+<td class="org-left">live data</td>
+<td class="org-left">big data</td>
+<td class="org-left">visualization</td>
+<td class="org-left">functional</td>
+<td class="org-left">functionality</td>
+</tr>
+</tbody>
+</table>
+<p>
+Hadley's <a href="https://adv-r.hadley.nz/">Advanced R</a> was a defining book for me. He shows you R's straightforward nuts, bolts and reflection, and enough hints towards things-to-have-opinions-on-later to grow up properly as an R programmer.
+R has a mature and extensive scientific ecosystem.
+As far as a comparison to Google's pet Python goes, I prefer R's
+</p>
+<ul class="org-ul">
+<li>(not that homogeneous) cran packages.</li>
+<li>Strong and built-to-purpose core
+<ul class="org-ul">
+<li>as compared to Python's perl-scripting-alternative-sort-of-java-do-what-you-want</li>
+</ul></li>
+<li>Rcpp C++ foreign function support</li>
+<li><code>magrittr</code></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbedf718" class="outline-3">
+<h3 id="orgbedf718">Some setup</h3>
+<div class="outline-text-3" id="text-orgbedf718">
+<p>
+Here particularly, we are starting out with Gentoo linux as I said before. The ebuild package system strongly provides strong choices out of the gate.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">USE='libxml2' emerge app-editors/emacs-vcs;
+
+emerge --ask app-emacs/org-mode
+
+emerge --ask dev-lang/R
+
+emerge --ask app-emacs/ess
+</pre>
+</div>
+<p>
+The <code>USE='libxml2'</code> is a requirement for emacs' <code>eww</code> browser, which I am partial to. With those four commands and a Gentoo box, everyone can play along happily with this blog. I promise there <span class="underline">will</span> be graphics later ;-).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8e3bd70" class="outline-3">
+<h3 id="org8e3bd70">Virtual Server</h3>
+<div class="outline-text-3" id="text-org8e3bd70">
+<p>
+For a stable, mutually compatable environment we decided to <code>ssh</code> into a shared virtual server for cooperative work.
+</p>
+
+<p>
+We are using <a href="https://www.linode.com/">Linode</a>(s), largely out of the box.
+</p>
+
+<p>
+Incidentally for you *nix power users out there, when building this environment up from a base image, my commands are normally executed something like this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">ssh root@XXX.XXX.XX.XXX &lt;&lt;EOF &amp; echo "asyncronously"
+  screen -S portage -d -m bash -c "emerge --sync"
+EOF
+</pre>
+</div>
+
+<p>
+executed with emacs' <code>M-x org-babel-execute-maybe</code> to asynchronously dispatch headless source blocks, in a way that can be conveniently connected to, looked in on, detached and logged.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdea38fc" class="outline-3">
+<h3 id="orgdea38fc">See you later!</h3>
+<div class="outline-text-3" id="text-orgdea38fc">
+<p>
+I am looking forward to sharing this data science experience :-)
+</p>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+    <div>
+      <div class="post-meta">
+        <span title="post date" class="post-info">2019-08-31</span>
+        <span title="last modification date" class="post-info">2019-08-31</span>
+        <span title="tags" class="post-info"><a href="/tags/gentoo/">gentoo</a>, <a href="/tags/r/">R</a>, <a href="/tags/bash/">bash</a>, <a href="/tags/portage/">portage</a></span>
+        <span title="author" class="post-info">Jake</span>
+      </div>
+      <section>
+        <h1>Comments</h1>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          //var disqus_developer = 1;
+          var disqus_identifier = "/blog/2019/08/31/control-environment";
+          var disqus_url = "https://nz-r-ml.github.io/blog/2019/08/31/control-environment";
+          var disqus_shortname = 'jakewaas';
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="//disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+       <div id="hashover"></div>
+       <script type="text/javascript" src="/hashover.php"></script>
+       <noscript>You must have JavaScript enabled to use the comments.</noscript>
+      </section>
+      <script src="//code.jquery.com/jquery-latest.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="/media/js/main.js"></script>
+      <div class="footer">
+        <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 27.x (<a href="http://orgmode.org">Org mode</a> 9.x)</p>
+        <p>
+          Copyright &copy; 2012 - <span id="footerYear"></span> <a href="mailto:Jake &lt;at&gt; Waas &lt;dot&gt; ca">Jake</a>
+          &nbsp;&nbsp;-&nbsp;&nbsp;
+          Powered by <a href="https://github.com/kelvinh/org-page" target="_blank">org-page</a>
+          <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
+        </p>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,10 @@
+#+TITLE:       Control environment
+#+AUTHOR:      root
+#+EMAIL:       root@localhost
+#+DATE:        2019-08-31 Sat
+#+URI:         /blog/%y/%m/%d/control-environment
+#+KEYWORDS:    server, setup
+#+TAGS:        gentoo, R, bash, portage
+#+LANGUAGE:    en
+#+OPTIONS:     H:3 num:nil toc:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+#+DESCRIPTION: Some of the setup of a virtual server we use
