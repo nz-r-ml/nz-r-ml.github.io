@@ -1,0 +1,10 @@
+#+TITLE:       Hello world post
+#+AUTHOR:      root
+#+EMAIL:       root@localhost
+#+DATE:        2019-08-31 Sat
+#+URI:         /blog/%y/%m/%d/hello-world-post
+#+KEYWORDS:    setup
+#+TAGS:        hello-world
+#+LANGUAGE:    en
+#+OPTIONS:     H:3 num:nil toc:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+#+DESCRIPTION: Getting this running!

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>org-page</title>
+    <link>https://nz-r-ml.github.io</link>
+    <description>static site generator</description>
+    <pubDate>Sat, 31 Aug 2019 10:16:41 UTC</pubDate>
+    <lastBuildDate>Sat, 31 Aug 2019 10:16:41 UTC</lastBuildDate>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>Org-page static site generator (https://github.com/kelvinh/org-page)</generator>
+    <item>
+      <title>Hello world post</title>
+      <link>https://nz-r-ml.github.io/blog/2019/08/31/hello-world-post</link>
+      <description><![CDATA[Getting this running!]]></description>
+      <pubDate>2019-08-31</pubDate>
+      <guid>https://nz-r-ml.github.io/blog/2019/08/31/hello-world-post</guid>
+    </item>
+  </channel>
+</rss>
