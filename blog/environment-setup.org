@@ -1,0 +1,57 @@
+#+TITLE:       Control environment
+#+AUTHOR:      Jake
+#+EMAIL:       Jake@Waas.ca
+#+DATE:        2019-08-31 Sat
+#+URI:         /blog/%y/%m/%d/control-environment
+#+KEYWORDS:    server, setup
+#+TAGS:        gentoo, R, bash, portage
+#+LANGUAGE:    en
+#+OPTIONS:     H:3 num:nil toc:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+#+DESCRIPTION: Some of the setup of a virtual server we use
+* Some of my initial choices for this project
+  | Language              | [[https://ess.r-project.org/][R]]          |
+  | Editor                | [[https://github.com/emacs-mirror/emacs][Emacs 27]]   |
+  | Programming framework | [[https://orgmode.org/][org-mode 9]] |
+  | R manager             | [[https://ess.r-project.org/][ess]]        |
+  | Operating system      | [[https://ess.r-project.org/][Gentoo]]     |
+  A little idiomatic, I know! Luckily Malithi is also using [[https://www.rstudio.com/][R Studio]].
+** Why *R* ?
+   | Kiwi as | live code | live data | big data | visualization | functional | functionality |
+   Hadley's [[https://adv-r.hadley.nz/][Advanced R]] was a defining book for me. He shows you R's straightforward nuts, bolts and reflection, and enough hints towards things-to-have-opinions-on-later to grow up properly as an R programmer.
+   R has a mature and extensive scientific ecosystem.
+   As far as a comparison to Google's pet Python goes, I prefer R's
+   - (not that homogeneous) cran packages.
+   - Strong and built-to-purpose core
+     - as compared to Python's perl-scripting-alternative-sort-of-java-do-what-you-want
+   - Rcpp C++ foreign function support
+   - ~magrittr~
+** Some setup
+   Here particularly, we are starting out with Gentoo linux as I said before. The ebuild package system strongly provides strong choices out of the gate.
+   #+BEGIN_SRC sh
+     USE='libxml2' emerge app-editors/emacs-vcs;
+
+     emerge --ask app-emacs/org-mode
+
+     emerge --ask dev-lang/R
+
+     emerge --ask app-emacs/ess
+   #+END_SRC
+   The ~USE='libxml2'~ is a requirement for emacs' ~eww~ browser, which I am partial to. With those four commands and a Gentoo box, everyone can play along happily with this blog. I promise there _will_ be graphics later ;-).
+
+** Virtual Server
+   For a stable, mutually compatable environment we decided to ~ssh~ into a shared virtual server for cooperative work.
+
+   We are using [[https://www.linode.com/][Linode]](s), largely out of the box.
+
+   Incidentally for you *nix power users out there, when building this environment up from a base image, my commands are normally executed something like this:
+
+   #+BEGIN_SRC sh
+     ssh root@XXX.XXX.XX.XXX <<EOF & echo "asyncronously"
+       screen -S portage -d -m bash -c "emerge --sync"
+     EOF
+   #+END_SRC
+   
+   executed with emacs' ~M-x org-babel-execute-maybe~ to asynchronously dispatch headless source blocks, in a way that can be conveniently connected to, looked in on, detached and logged.
+
+** See you later!
+   I am looking forward to sharing this data science experience :-)
