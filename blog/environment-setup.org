@@ -9,11 +9,11 @@
 #+OPTIONS:     H:3 num:nil toc:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
 #+DESCRIPTION: Some of the setup of a virtual server we use
 * Some of my initial choices for this project
-  | Language              | [[https://ess.r-project.org/][R]]          |
-  | Editor                | [[https://github.com/emacs-mirror/emacs][Emacs 27]]   |
-  | Programming framework | [[https://orgmode.org/][org-mode 9]] |
-  | R manager             | [[https://ess.r-project.org/][ess]]        |
-  | Operating system      | [[https://ess.r-project.org/][Gentoo]]     |
+  | Language              | [[https://r-project.org/][R]] |
+  | Editor                | [[https://github.com/emacs-mirror/emacs][Emacs 27]]                     |
+  | Programming framework | [[https://orgmode.org/][org-mode 9]]                   |
+  | R manager             | [[https://ess.r-project.org/][ess]]                          |
+  | Operating system      | [[https://gentoo.org/][Gentoo]]                 |
   A little idiomatic, I know! Luckily Malithi is also using [[https://www.rstudio.com/][R Studio]].
 ** Why *R* ?
    | Kiwi as | live code | live data | big data | visualization | functional | functionality |
